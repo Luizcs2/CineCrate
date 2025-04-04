@@ -3,8 +3,7 @@
 <table>
 <tr>
 <td>
-  CineCrate is a sleek, modern movie and TV discovery app built with **React.js** and **Material UI**. Browse trending titles, search for your favorites, and view details — all with a smooth, responsive interface.
-</td>
+  CineCrate is a sleek, modern movie and TV discovery app built with **React.js** 
 </tr>
 </table>
 
