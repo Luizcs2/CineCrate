@@ -34,3 +34,16 @@ cd CineCrate
 npm install
 ```
 
+
+---
+
+📌 TODO / Improvements
+
+Add user login & favorites
+Dark mode toggle
+Trailer playback inside modals
+Deployment (e.g., Vercel or Netlify)
+
+Let me know if you want me to:
+- Add a live demo section
+
