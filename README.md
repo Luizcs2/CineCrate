@@ -1,12 +1,37 @@
-# Entertainment Hub
+# 🎬 CineCrate
+
 <table>
 <tr>
 <td>
-  Movie App built in React JS and Material UI.
+  CineCrate is a sleek, modern movie and TV discovery app built with **React.js** and **Material UI**. Browse trending titles, search for your favorites, and view details — all with a smooth, responsive interface.
 </td>
 </tr>
 </table>
 
-## [Click Here to Watch Full tutorial on Youtube](https://www.youtube.com/watch?v=IQXjO0t4XRM&list=PLKhlp2qtUcSYC7EffnHzD-Ws2xG-j3aYo)
+---
 
-![MOVIE APP](https://user-images.githubusercontent.com/51760520/124705920-1172ac80-df14-11eb-9568-1e91968b1273.png)
+## 🚀 Features
+
+- 🔍 Search for Movies & TV Shows
+- 🌟 Browse Trending, Top Rated, Upcoming, and Popular titles
+- 🧭 Navigate via a clean tabbed interface (Movies, TV Series, Search)
+- 🎨 Styled with Material UI for a responsive design
+- 📄 View detailed info, trailers, and more
+
+---
+
+## 🛠️ Tech Stack
+
+- React.js
+- Material U
+
+- ## 📦 Installation & Running Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Luizcs2/CineCrate.git
+cd CineCrate
+npm install
+```
+
