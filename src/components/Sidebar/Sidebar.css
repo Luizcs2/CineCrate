@@ -2,27 +2,28 @@
   width: 240px;
   min-width: 240px;
   height: 100%;
-  background-color: #1a1a1a;
-  padding: 1rem;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  background-color: #000000;
+  padding: 5rem;
+  box-shadow: 2px 0 5px rgba(255, 0, 0, 0.506);
+  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
   position: sticky;
   top: 0;
   overflow-y: auto;
-  max-height: calc(100vh - 120px);
+  max-height: calc(180vh - 120px);
 }
 
 .sidebar-collapsed {
   width: 50px;
   min-width: 50px;
   height: 100%;
-  background-color: #1a1a1a;
+  background-color: #000000;
   padding: 1rem 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0 5px rgb(5, 5, 5);
   display: flex;
   flex-direction: column;
+  transition: all 0.4s ease;
   align-items: center;
 }
 
@@ -39,7 +40,7 @@
 }
 
 .sidebar-toggle {
-  color: #ffffff !important;
+  color: #4f4f4f !important;
 }
 
 .sidebar-section {
@@ -61,7 +62,7 @@
 
 .genre-chip {
   margin-bottom: 0.3rem !important;
-  background-color: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgb(47, 47, 47) !important;
   transition: all 0.2s ease !important;
 }
 
@@ -70,7 +71,7 @@
 }
 
 .selected-genre {
-  background-color: #e50914 !important;
+  background-color: rgba(255, 0, 0, 0.506) !important;
   color: #ffffff !important;
 }
 
@@ -80,7 +81,7 @@
 }
 
 .empty-message {
-  color: #999999;
+  color: #565555;
   font-style: italic;
   margin: 0.5rem 0;
 }

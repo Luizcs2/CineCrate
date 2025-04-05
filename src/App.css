@@ -15,6 +15,59 @@
     padding-top: 70px;
   }
 }
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.movies-container,
+.series-container {
+  width: 100%;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 1.3rem;
+  color: #b3b3b3;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 1.3rem;
+  color: #b3b3b3;
+}
+
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Add this to your App.css */
+.app-content {
+  display: flex;
+  width: 100%;
+}
+
+.main-container {
+  flex: 1;
+  transition: all 0.3s ease;
+}
 
 .pageTitle {
   text-transform: uppercase;
