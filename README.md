@@ -3,7 +3,7 @@
 <table>
 <tr>
 <td>
-  CineCrate is a sleek, modern movie and TV discovery app built with **React.js** 
+  CineCrate is a sleek, modern movie and TV discovery app built with **React.js** (if movies do not load just click on trending)
 </tr>
 </table>
 
