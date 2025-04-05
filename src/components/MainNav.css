@@ -1,0 +1,23 @@
+.nav-action {
+  color: rgba(244, 0, 0, 0.7) !important;
+  transition: all 0.3s ease !important;
+}
+
+.nav-selected {
+  color: #e50914 !important;
+}
+
+.nav-label {
+  font-size: 0.7rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.nav-root {
+  padding: 6px 12px 8px !important;
+  min-width: 80px !important;
+}
+
+.nav-root:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}

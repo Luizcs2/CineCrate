@@ -1,11 +1,61 @@
 .carouselItem {
   display: flex;
   flex-direction: column;
-  object-fit: contain;
+  align-items: center;
+  gap: 8px;
   padding: 10px;
+  transition: all 0.3s ease;
 }
+
+.carouselItem:hover {
+  transform: scale(1.05);
+}
+
 .carouselItem__img {
-  border-radius: 10px;
-  margin-bottom: 5px;
-  box-shadow: 0px 0px 5px black;
+  width: 100%;
+  aspect-ratio: 1/1.5;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.carouselItem__txt {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.carouselItem__character {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #b3b3b3;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alice-carousel__dots {
+  margin: 15px 0 0 !important;
+}
+
+.alice-carousel__dots-item:not(.__custom):hover,
+.alice-carousel__dots-item:not(.__custom).__active {
+  background-color: #e50914 !important;
+}
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  display: block !important;
+  padding: 10px !important;
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+  color: white !important;
+  font-size: 1.5rem !important;
 }

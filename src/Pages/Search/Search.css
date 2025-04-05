@@ -1,4 +1,83 @@
+.search-container {
+  padding: 2rem 1rem;
+  min-height: 90vh;
+  background-color: #121212;
+}
+
 .search {
   display: flex;
-  margin: 15px 0;
+  margin: 2rem auto;
+  max-width: 800px;
+  width: 100%;
+  gap: 10px;
+}
+
+.search-tabs {
+  margin: 0 auto 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.search-results-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 1.3rem;
+  color: #b3b3b3;
+}
+
+.pagination-container {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .search {
+    flex-direction: column;
+    margin: 1.5rem auto;
+  }
+  
+  .search-results {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-results {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Custom styling for Material UI components */
+.search-button {
+  min-width: 60px !important;
+  height: 56px !important;
+}
+
+.search-tabs-indicator {
+  height: 3px !important;
+  background-color: #E50914 !important;
+}
+
+.search-tab {
+  font-weight: 600 !important;
+  text-transform: none !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.5px !important;
+}
+
+.search-tab-selected {
+  color: #E50914 !important;
 }

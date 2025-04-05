@@ -1,0 +1,56 @@
+.genres {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.genre-chip {
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.genre-chip-selected {
+  background-color: #565656 !important;
+  color: rgb(255, 255, 255);
+}
+
+.genre-chip-unselected {
+  background-color: rgba(54, 54, 54, 0.954);
+  color: #313131;
+}
+
+.genre-chip-unselected:hover {
+  background-color: rgb(43, 43, 43);
+}
+
+.genres-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .genres {
+    gap: 6px;
+  }
+
+  .genre-chip {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+}
