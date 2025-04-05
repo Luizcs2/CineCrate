@@ -8,7 +8,6 @@ import Series from "./Pages/Series/Series";
 import Trending from "./Pages/Trending/Trending";
 import Search from "./Pages/Search/Search";
 import Sidebar from "./components/Sidebar/Sidebar";
-import { Container } from "@material-ui/core";
 
 function App() {
   const [selectedGenres, setSelectedGenres] = useState([]);

@@ -39,6 +39,14 @@ export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(getActiveValue());
 
   useEffect(() => {
+    const getActiveValue = () => {
+      const path = location.pathname;
+      if (path === "/") return 0;
+      if (path === "/movies") return 1;
+      if (path === "/series") return 2;
+      if (path === "/search") return 3;
+      return 0;
+    };
     setValue(getActiveValue());
   }, [location]);
 
