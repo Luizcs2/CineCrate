@@ -15,6 +15,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import StarIcon from "@material-ui/icons/Star";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import LanguageIcon from "@material-ui/icons/Language";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import Carousel from "../Carousel/Carousel";
 
 const useStyles = makeStyles((theme) => ({
@@ -48,6 +49,25 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#3D3D3D",
     },
   },
+  buttonWatch: {
+    backgroundColor: "#4CAF50",
+    "&:hover": {
+      backgroundColor: "#388E3C",
+    },
+  },
+  playerContainer: {
+    width: "100%",
+    height: "500px",
+    marginTop: "20px",
+    borderRadius: "8px",
+    overflow: "hidden",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.5)",
+  },
+  player: {
+    width: "100%",
+    height: "100%",
+    border: "none",
+  },
 }));
 
 export default function TransitionsModal({ children, media_type, id }) {
@@ -56,14 +76,18 @@ export default function TransitionsModal({ children, media_type, id }) {
   const [content, setContent] = useState();
   const [video, setVideo] = useState();
   const [loading, setLoading] = useState(true);
+  const [showPlayer, setShowPlayer] = useState(false);
+  const [externalId, setExternalId] = useState(null);
 
   const handleOpen = () => {
     setOpen(true);
     setLoading(true);
+    setShowPlayer(false);
   };
 
   const handleClose = () => {
     setOpen(false);
+    setShowPlayer(false);
   };
 
   const fetchData = async () => {
@@ -72,6 +96,12 @@ export default function TransitionsModal({ children, media_type, id }) {
         `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
       );
       setContent(data);
+
+      // Fetch external IDs to get IMDB ID
+      const { data: externalData } = await axios.get(
+        `https://api.themoviedb.org/3/${media_type}/${id}/external_ids?api_key=${process.env.REACT_APP_API_KEY}`
+      );
+      setExternalId(externalData.imdb_id);
     } catch (error) {
       console.error("Error fetching content details:", error);
     } finally {
@@ -109,6 +139,29 @@ export default function TransitionsModal({ children, media_type, id }) {
     if (rating >= 5) return "#FFC107";
     return "#F44336";
   }
+
+  const handleWatchNow = () => {
+    setShowPlayer(true);
+  };
+
+  const getEmbedUrl = () => {
+    if (media_type === "movie") {
+      // Use IMDB ID if available, otherwise use TMDB ID
+      if (externalId) {
+        return `https://vidsrc.xyz/embed/movie/${externalId}`;
+      } else {
+        return `https://vidsrc.xyz/embed/movie/${id}`;
+      }
+    } else if (media_type === "tv") {
+      // For TV shows
+      if (externalId) {
+        return `https://vidsrc.xyz/embed/tv/${externalId}`;
+      } else {
+        return `https://vidsrc.xyz/embed/tv/${id}`;
+      }
+    }
+    return null;
+  };
 
   return (
     <>
@@ -223,37 +276,63 @@ export default function TransitionsModal({ children, media_type, id }) {
 
                   <div className="ContentModal__description">
                     {content.overview}
-                  </div>
+                    </div>
+                    
 
-                  <h2 className="ContentModal__cast-heading">Cast</h2>
-                  <div>
-                    <Carousel id={id} media_type={media_type} />
-                  </div>
+<div className="ContentModal__buttons">
+                        <Button
+                          variant="contained"
+                          startIcon={<PlayArrowIcon />}
+                          className={classes.buttonWatch}
+                          onClick={handleWatchNow}
+                        >
+                          Watch Now
+                        </Button>
+                        
+                        {video && (
+                          <Button
+                            variant="contained"
+                            startIcon={<YouTubeIcon />}
+                            className={classes.buttonTrailer}
+                            target="__blank"
+                            href={`https://www.youtube.com/watch?v=${video}`}
+                          >
+                            Watch Trailer
+                          </Button>
+                        )}
+                        {content.homepage && (
+                          <Button
+                            variant="contained"
+                            startIcon={<LanguageIcon />}
+                            className={classes.buttonWebsite}
+                            target="__blank"
+                            href={content.homepage}
+                          >
+                            Official Website
+                          </Button>
+                        )}
+                    </div>
+                    
+                  {!showPlayer && (
+                    <>
+                      <h2 className="ContentModal__cast-heading">Cast</h2>
+                      <div>
+                        <Carousel id={id} media_type={media_type} />
+                      </div>
 
-                  <div className="ContentModal__buttons">
-                    {video && (
-                      <Button
-                        variant="contained"
-                        startIcon={<YouTubeIcon />}
-                        className={classes.buttonTrailer}
-                        target="__blank"
-                        href={`https://www.youtube.com/watch?v=${video}`}
-                      >
-                        Watch Trailer
-                      </Button>
-                    )}
-                    {content.homepage && (
-                      <Button
-                        variant="contained"
-                        startIcon={<LanguageIcon />}
-                        className={classes.buttonWebsite}
-                        target="__blank"
-                        href={content.homepage}
-                      >
-                        Official Website
-                      </Button>
-                    )}
-                  </div>
+                    </>
+                  )}
+
+                  {showPlayer && (
+                    <div className={classes.playerContainer}>
+                      <iframe
+                        src={getEmbedUrl()}
+                        title={content.name || content.title}
+                        className={classes.player}
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
