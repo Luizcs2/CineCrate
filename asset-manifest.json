@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/CineCrate/static/css/main.493ed611.css",
+    "main.js": "/CineCrate/static/js/main.78d54073.js",
+    "service-worker.js": "/CineCrate/service-worker.js",
+    "index.html": "/CineCrate/index.html",
+    "main.493ed611.css.map": "/CineCrate/static/css/main.493ed611.css.map",
+    "main.78d54073.js.map": "/CineCrate/static/js/main.78d54073.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.493ed611.css",
+    "static/js/main.78d54073.js"
+  ]
+}
