@@ -2,23 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import {
-  TextField,
   Chip,
   Typography,
   Divider,
   IconButton,
   Button,
 } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 import "./Sidebar.css";
 
-const Sidebar = ({
-  selectedGenres,
-  setSelectedGenres,
-  quickSearchText,
-  setQuickSearchText,
-}) => {
+const Sidebar = ({ selectedGenres, setSelectedGenres }) => {
   const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [expanded, setExpanded] = useState(window.innerWidth > 768);
@@ -66,11 +59,6 @@ const Sidebar = ({
     setGenres([...genres, genre].sort((a, b) => a.name.localeCompare(b.name)));
   };
 
-  const handleQuickSearch = (e) => {
-    e.preventDefault();
-    // The parent component will use quickSearchText for filtering
-  };
-
   if (!expanded) {
     return (
       <div className="sidebar-collapsed">
@@ -97,29 +85,6 @@ const Sidebar = ({
         >
           <MenuIcon />
         </IconButton>
-      </div>
-
-      <div className="sidebar-section">
-        <Typography variant="subtitle1" className="section-title">
-          Quick Search
-        </Typography>
-        <form onSubmit={handleQuickSearch} className="quick-search-form">
-          <TextField
-            fullWidth
-            size="small"
-            variant="outlined"
-            placeholder="Filter results..."
-            value={quickSearchText}
-            onChange={(e) => setQuickSearchText(e.target.value)}
-            InputProps={{
-              endAdornment: (
-                <IconButton type="submit" size="small">
-                  <SearchIcon fontSize="small" />
-                </IconButton>
-              ),
-            }}
-          />
-        </form>
       </div>
 
       <Divider className="sidebar-divider" />

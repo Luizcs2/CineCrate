@@ -12,6 +12,9 @@
   font-weight: 500 !important;
   transition: all 0.3s ease !important;
 }
+.custom-placeholder::placeholder {
+  color: #565555;
+}
 
 .nav-root {
   padding: 6px 12px 8px !important;
